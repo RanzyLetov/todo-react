@@ -1,10 +1,10 @@
 import Button from "./Button.jsx";
 
 const TodoInfo = (props) => {
-
     const {
         total,
         done,
+        onDeleteAllButtonClick,
     } = props;
 
     const hasTasks = total > 0;
@@ -15,7 +15,10 @@ const TodoInfo = (props) => {
                 Done {done} from {total}
             </div>
             {hasTasks && (
-                <Button className="todo__delete-all-button">
+                <Button
+                    className="todo__delete-all-button"
+                    onClick={onDeleteAllButtonClick}
+                >
                     Delete all
                 </Button>
             )}

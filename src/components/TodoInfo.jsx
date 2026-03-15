@@ -1,10 +1,24 @@
 import Button from "./Button.jsx";
 
-const TodoInfo = () => {
+const TodoInfo = (props) => {
+
+    const {
+        total,
+        done,
+    } = props;
+
+    const hasTasks = total > 0;
+
     return (
         <div className="todo__info">
-            <div className="todo__total-tasks">Total tasks: <span>0</span></div>
-            <Button className="todo__delete-all-button" label="Delete all" type="button" />
+            <div className="todo__total-tasks">
+                Done {done} from {total}
+            </div>
+            {hasTasks && (
+                <Button className="todo__delete-all-button">
+                    Delete all
+                </Button>
+            )}
         </div>
     )
 }

@@ -1,6 +1,12 @@
-const Field = ({ id, label, type }) => {
+const Field = (props) => {
+    const {
+        id,
+        label,
+        type = 'text',
+        className = "",
+    } = props;
     return (
-        <div className="todo__field field">
+    <div className={`${className} field`}>
             <label
                 className="field__label"
                 htmlFor={id}

@@ -1,6 +1,16 @@
-const Button = ({ className,  label, type }) => {
+const Button = (props) => {
+    const {
+        className = "",
+        type= "button",
+        children,
+    } = props;
     return (
-        <button className={className} type={type} >{label}</button>
+        <button
+            className={className}
+            type={type}
+        >
+             {children}
+        </button>
     )
 }
 

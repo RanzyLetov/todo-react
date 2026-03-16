@@ -4,9 +4,11 @@ const Field = (props) => {
         label,
         type = 'text',
         className = "",
+        value,
         onInput,
     } = props;
     return (
+
     <div className={`${className} field`}>
             <label
                 className="field__label"
@@ -21,6 +23,7 @@ const Field = (props) => {
                 autoComplete="off"
                 type={type}
                 onInput={onInput}
+                value={value}
             />
         </div>
     )

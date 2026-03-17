@@ -15,12 +15,12 @@ const TodoInfo = (props) => {
                 Done {done} from {total}
             </div>
             {hasTasks && (
-                <Button
+                <button
                     className="todo__delete-all-button"
                     onClick={onDeleteAllButtonClick}
                 >
                     Delete all
-                </Button>
+                </button>
             )}
         </div>
     )

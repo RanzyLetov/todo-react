@@ -7,6 +7,7 @@ const SearchTaskForm = () => {
         searchQuery,
         setSearchQuery,
     } = useContext(TasksContext);
+
     return (
         <form
             className="todo__form"

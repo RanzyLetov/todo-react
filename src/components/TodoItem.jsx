@@ -1,5 +1,6 @@
-import { memo, useContext } from "react";
-import { TasksContext } from "../context/TasksContext.jsx";
+import {memo, useContext} from "react";
+import {TasksContext} from "../context/TasksContext.jsx";
+import RouterLink from "./RouterLink.jsx";
 
 const TodoItem = (props) => {
     const {
@@ -19,7 +20,7 @@ const TodoItem = (props) => {
 
     return (
         <li
-            className = {`todo-item ${className}`}
+            className={`todo-item ${className}`}
             ref={id === firstIncompleteTaskId ? firstIncompleteTaskRef : null}
         >
             <input
@@ -31,11 +32,18 @@ const TodoItem = (props) => {
             />
 
             <label
-                className="todo-item__label"
+                className="todo-item__label visually-hidden"
                 htmlFor={id}
             >
                 {title}
             </label>
+            <RouterLink
+                // className="todo-item__label"
+                to={`/tasks/${id}`}
+                aria-label="Task details page"
+            >
+                {title}
+            </RouterLink>
             <button
                 className="todo-item__delete-button"
                 aria-label="Delete"

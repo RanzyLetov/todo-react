@@ -1,1 +1,15 @@
-{tasks:[{title:'6',isDone:false,id:'Rg13l0L6Xfg'},{title:'7',isDone:true,id:'KypKsc3edHM'},{title:'7',isDone:false,id:'xw7MTctgqk4'},{title:'123',isDone:true,id:'fsOyRAUPyzc'},{title:'5',isDone:false,id:'lrXoPIkOD8A'}],$schema:'./node_modules/json-server/schema.json'}
+{
+  tasks: [
+    {
+      title: 'Почитать',
+      isDone: false,
+      id: '123'
+    },
+    {
+      title: 'Поучить английский',
+      isDone: true,
+      id: 'ff9jNW0aF_0'
+    }
+  ],
+  $schema: './node_modules/json-server/schema.json'
+}

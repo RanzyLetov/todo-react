@@ -12,6 +12,8 @@ const useTasks = () => {
 
     const [newTaskTitle, setNewTaskTitle] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
+    const [disappearingTaskId, setDisappearingTaskId] = useState(null);
+    const [appearingTaskId, setAppearingTaskId] = useState(null);
 
     const newTaskInputRef = useRef(null);
 
@@ -28,9 +30,13 @@ const useTasks = () => {
     const deleteTask = useCallback((taskId) => {
         tasksAPI.delete(taskId)
             .then(() => {
-                setTasks(
-                    tasks.filter((task) => task.id !== taskId)
-                )
+                setDisappearingTaskId(taskId)
+                setTimeout(() => {
+                    setTasks(
+                        tasks.filter((task) => task.id !== taskId)
+                    )
+                    setDisappearingTaskId(null);
+                }, 400)
             })
     }, [tasks])
 
@@ -59,12 +65,18 @@ const useTasks = () => {
             isDone: false,
         }
 
-        tasksAPI.add(newTask).then((addTask) => {
-            setTasks((prevTasks) => [...prevTasks, addTask]);
-            setNewTaskTitle('');
-            setSearchQuery('');
-            newTaskInputRef.current.focus();
-        })
+        tasksAPI.add(newTask)
+            .then((addTask) => {
+                setTasks((prevTasks) => [...prevTasks, addTask]);
+                setNewTaskTitle('');
+                setSearchQuery('');
+                newTaskInputRef.current.focus();
+
+                setAppearingTaskId(addTask.id);
+                setTimeout(() => {
+                    setAppearingTaskId(null)
+                }, 400)
+            })
 
     }, []);
 
@@ -73,7 +85,6 @@ const useTasks = () => {
 
         tasksAPI.getAll()
             .then(setTasks)
-
     }, [])
 
     const filteredTasks = useMemo(() => {
@@ -96,6 +107,8 @@ const useTasks = () => {
         setSearchQuery,
         newTaskInputRef,
         addTask,
+        disappearingTaskId,
+        appearingTaskId,
     }
 }
 

@@ -1,1 +1,1 @@
-{tasks:[{title:'Почитать',isDone:false,id:'123'},{title:'Поучить английский',isDone:true,id:'ff9jNW0aF_0'},{title:'234',isDone:false,id:'vS1iCsdjZCM'}],$schema:'./node_modules/json-server/schema.json'}
+{tasks:[{title:'Задача1',isDone:false,id:'xNJEd4fGhx8'},{title:'Задача2',isDone:true,id:'3XJpZrlHE-Y'}],$schema:'./node_modules/json-server/schema.json'}
